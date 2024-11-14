@@ -32,14 +32,15 @@ public class Main {
     }
 
     public static void menu() {
-        Scanner sc = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
         System.out.println("Ingresa una opcion: ");
         System.out.println("1. Nuevo juego\n2. Ver resultados\n3. Salir");
         System.out.print("\uD83D\uDC49 ");
 
         Game game = new Game();
 
-        int opcion = sc.nextInt();
+        int opcion = entrada.nextInt();
+        entrada.nextLine();
 
         if (opcion == 1) {
             game.empezarNuevoJuego();
