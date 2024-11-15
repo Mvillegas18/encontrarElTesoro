@@ -17,6 +17,8 @@ public class Game {
         String nombre = entrada.nextLine();
         jugador.setNombre(nombre);
 
+        System.out.println();
+        System.out.println("Nombre: " + jugador.getNombre() + "\t Vidas: " + jugador.vidas );
         System.out.println("Haz sido lanzado aleatoriamente en el laberinto");
 
         tablero = new GameBoard();
