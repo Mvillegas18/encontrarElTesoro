@@ -10,13 +10,17 @@ public class Game {
 
     // Inicializa el tablero y el jugador en una posición aleatoria.
     public void empezarNuevoJuego(){
-        int vidas, movimientos, resultados, tiempo;
-        jugador = new Player();
+        int resultados, tiempo;
 
+        jugador = new Player();
         System.out.print("Ingresa tu nombre para comenzar: ");
         String nombre = entrada.nextLine();
         jugador.setNombre(nombre);
-        System.out.println("Su nombre es " + jugador.getNombre());
+
+        System.out.println("Haz sido lanzado aleatoriamente en el laberinto");
+
+        tablero = new GameBoard();
+        tablero.inicializarTablero();
     }
 
     // Llama a la clase GameBoard para actualizar la posición del jugador según la dirección.
