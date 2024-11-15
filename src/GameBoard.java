@@ -3,18 +3,18 @@ import java.util.Random;
 public class GameBoard {
 
     private final int TAMANIO = 40;
-    private final char[][] tablero;
+    private final String[][] tablero;
 
     Player jugador;
 
     public GameBoard() {
-        tablero = new char[TAMANIO][TAMANIO];
+        tablero = new String[TAMANIO][TAMANIO];
     }
 
     public void inicializarTablero (){
         for (int i = 0; i < TAMANIO; i++) {
             for (int j = 0; j < TAMANIO; j++) {
-                tablero[i][j] = '.';
+                tablero[i][j] = ".";
             }
         }
 
@@ -26,7 +26,8 @@ public class GameBoard {
         jugador.setPositionX(randomX);
         jugador.setPositionY(randomY);
 
-        tablero[jugador.getPositionX()][jugador.getPositionY()] = 'J';
+        String jugadorIcono = "\uD83E\uDDCD";
+        tablero[jugador.getPositionX()][jugador.getPositionY()] = jugadorIcono;
 
         imprimirTablero();
     }
