@@ -69,7 +69,7 @@ public class GameBoard {
             tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
             imprimirTablero();
         }else{
-            System.out.println("No mas movimientos hacia arriba");
+            System.out.println("No mas movimientos hacia izquierda");
         }
     }
     public void movimientoRIGHT(){
@@ -79,7 +79,7 @@ public class GameBoard {
             tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
             imprimirTablero();
         }else{
-            System.out.println("No mas movimientos hacia arriba");
+            System.out.println("No mas movimientos hacia derecha");
         }
     }
 }
