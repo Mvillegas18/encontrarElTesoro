@@ -40,4 +40,46 @@ public class GameBoard {
             System.out.println("");
         }
     }
+
+    public void movimientoUP(){
+        if (jugador.getPositionY() > 0) {
+            tablero[jugador.getPositionX()][jugador.getPositionY()] = ".";
+            jugador.setPositionY(jugador.getPositionY() - 1);
+            tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
+            imprimirTablero();
+        }else{
+            System.out.println("No mas movimientos hacia arriba");
+        }
+
+    }
+    public void movimientoDOWN(){
+        if (jugador.getPositionY() < TAMANIO - 1) {
+            tablero[jugador.getPositionX()][jugador.getPositionY()] = ".";
+            jugador.setPositionY(jugador.getPositionY() + 1);
+            tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
+            imprimirTablero();
+        } else {
+            System.out.println("No puedes moverte más abajo.");
+        }
+    }
+    public void movimientoLEFT(){
+        if (jugador.getPositionX() > 0) {
+            tablero[jugador.getPositionX()][jugador.getPositionY()] = ".";
+            jugador.setPositionX(jugador.getPositionX() - 1);
+            tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
+            imprimirTablero();
+        }else{
+            System.out.println("No mas movimientos hacia arriba");
+        }
+    }
+    public void movimientoRIGHT(){
+        if (jugador.getPositionX() < TAMANIO - 1) {
+            tablero[jugador.getPositionX()][jugador.getPositionY()] = ".";
+            jugador.setPositionX(jugador.getPositionX() + 1);
+            tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
+            imprimirTablero();
+        }else{
+            System.out.println("No mas movimientos hacia arriba");
+        }
+    }
 }

@@ -4,7 +4,7 @@ public class Player {
     String nombre;
     int positionX;
     int positionY;
-
+    int movimientosRestantes = movimientos;
 
     // Nombre
     public String getNombre() {
@@ -40,5 +40,9 @@ public class Player {
     // Movimientos
     public int getMovimientos() {
         return movimientos;
+    }
+
+    public void setMovimientos(int movimientosRestantes) {
+        this.movimientosRestantes = movimientosRestantes;
     }
 }

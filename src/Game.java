@@ -1,8 +1,9 @@
 import java.util.Scanner;
+import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Game {
-
-
     final Scanner entrada = new Scanner(System.in);
 
     GameBoard tablero;
@@ -11,7 +12,6 @@ public class Game {
     // Inicializa el tablero y el jugador en una posición aleatoria.
     public void empezarNuevoJuego(){
         int resultados, tiempo;
-        int r;
         jugador = new Player();
         System.out.print("Ingresa tu nombre para comenzar: ");
         String nombre = entrada.nextLine();
@@ -25,9 +25,41 @@ public class Game {
         tablero.inicializarTablero();
     }
 
+    public void tecladoConfiguracion(){
+        JFrame ventana = new JFrame();
+        ventana.setTitle("Juego");
+        ventana.setSize(500, 500);
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                moverJugador(e);
+            }
+        });
+
+        ventana.setVisible(true);
+        ventana.setFocusable(true);
+    }
+
     // Llama a la clase GameBoard para actualizar la posición del jugador según la dirección.
-    public void moverJugador(){
-        System.out.println("Moviendome a una posicion aleatoria");
+    public void moverJugador(KeyEvent e){
+        int keyCode = e.getKeyCode();
+        if(jugador.getMovimientos() > 0){
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_UP:
+                    break;
+                case KeyEvent.VK_DOWN:
+                    break;
+                case KeyEvent.VK_LEFT:
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    break;
+            }
+            jugador.setMovimientos(jugador.getMovimientos() - 1);
+        }else{
+            System.out.println("Sin movimientos restantes");
+        }
+
     }
 
     public void verificarEstadoTablero(){
