@@ -9,8 +9,8 @@ public class Player {
     int positionXTesoro;
     int positionYTesoro;
 
-    int resultados;
-    int tiempoJugador;
+    String resultados;
+    String tiempoJugador;
 
     int movimientosRestantes = movimientos;
 
@@ -72,18 +72,18 @@ public class Player {
     }
 
     // Resultados jugador
-    public void setResultados(int resultador) {
-        this.resultados = resultador;
+    public void setResultados(String resultados) {
+        this.resultados = resultados;
     }
-    public int getResultados() {
+    public String getResultados() {
         return resultados;
     }
 
     // Tiempo Jugador
-    public void setTiempoJugador(int tiempoJugador) {
+    public void setTiempoJugador(String tiempoJugador) {
         this.tiempoJugador = tiempoJugador;
     }
-    public int getTiempoJugador() {
+    public String getTiempoJugador() {
         return tiempoJugador;
     }
 }
