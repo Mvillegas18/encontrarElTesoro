@@ -21,13 +21,13 @@ public class GameBoard {
         jugador = new Player();
         Random random = new Random();
 
-        int randomX = random.nextInt(TAMANIO);
-        int randomY = random.nextInt(TAMANIO);
-        jugador.setPositionX(randomX);
-        jugador.setPositionY(randomY);
+        int randomXJugador = random.nextInt(TAMANIO);
+        int randomYJugador = random.nextInt(TAMANIO);
+        jugador.setPositionXJugador(randomXJugador);
+        jugador.setPositionYJugador(randomYJugador);
 
         String jugadorIcono = "\uD83E\uDDCD";
-        tablero[jugador.getPositionX()][jugador.getPositionY()] = jugadorIcono;
+        tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = jugadorIcono;
 
         imprimirTablero();
     }
@@ -42,10 +42,10 @@ public class GameBoard {
     }
 
     public void movimientoUP(){
-        if (jugador.getPositionY() > 0) {
-            tablero[jugador.getPositionX()][jugador.getPositionY()] = ".";
-            jugador.setPositionY(jugador.getPositionY() - 1);
-            tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
+        if (jugador.getPositionYJugador() > 0) {
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+            jugador.setPositionYJugador(jugador.getPositionYJugador() - 1);
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "\uD83E\uDDCD";
             imprimirTablero();
         }else{
             System.out.println("No mas movimientos hacia arriba");
@@ -53,30 +53,30 @@ public class GameBoard {
 
     }
     public void movimientoDOWN(){
-        if (jugador.getPositionY() < TAMANIO - 1) {
-            tablero[jugador.getPositionX()][jugador.getPositionY()] = ".";
-            jugador.setPositionY(jugador.getPositionY() + 1);
-            tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
+        if (jugador.getPositionYJugador() < TAMANIO - 1) {
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+            jugador.setPositionYJugador(jugador.getPositionYJugador() + 1);
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "\uD83E\uDDCD";
             imprimirTablero();
         } else {
             System.out.println("No puedes moverte más abajo.");
         }
     }
     public void movimientoLEFT(){
-        if (jugador.getPositionX() > 0) {
-            tablero[jugador.getPositionX()][jugador.getPositionY()] = ".";
-            jugador.setPositionX(jugador.getPositionX() - 1);
-            tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
+        if (jugador.getPositionXJugador() > 0) {
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+            jugador.setPositionXJugador(jugador.getPositionXJugador() - 1);
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "\uD83E\uDDCD";
             imprimirTablero();
         }else{
             System.out.println("No mas movimientos hacia arriba");
         }
     }
     public void movimientoRIGHT(){
-        if (jugador.getPositionX() < TAMANIO - 1) {
-            tablero[jugador.getPositionX()][jugador.getPositionY()] = ".";
-            jugador.setPositionX(jugador.getPositionX() + 1);
-            tablero[jugador.getPositionX()][jugador.getPositionY()] = "\uD83E\uDDCD";
+        if (jugador.getPositionXJugador() < TAMANIO - 1) {
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+            jugador.setPositionXJugador(jugador.getPositionXJugador() + 1);
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "\uD83E\uDDCD";
             imprimirTablero();
         }else{
             System.out.println("No mas movimientos hacia arriba");
