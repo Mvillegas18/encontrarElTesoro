@@ -23,6 +23,7 @@ public class Game {
 
         tablero = new GameBoard();
         tablero.inicializarTablero();
+        tecladoConfiguracion();
     }
 
     public void tecladoConfiguracion(){
@@ -47,12 +48,16 @@ public class Game {
         if(jugador.getMovimientos() > 0){
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_UP:
+                        tablero.movimientoUP();
                     break;
                 case KeyEvent.VK_DOWN:
+                        tablero.movimientoDOWN();
                     break;
                 case KeyEvent.VK_LEFT:
+                        tablero.movimientoLEFT();
                     break;
                 case KeyEvent.VK_RIGHT:
+                        tablero.movimientoRIGHT();
                     break;
             }
             jugador.setMovimientos(jugador.getMovimientos() - 1);
