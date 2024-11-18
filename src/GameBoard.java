@@ -20,6 +20,7 @@ public class GameBoard {
 
         jugador = new Player();
         Random random = new Random();
+        // Jugador posicion aleatoriaa
 
         int randomXJugador = random.nextInt(TAMANIO);
         int randomYJugador = random.nextInt(TAMANIO);
@@ -29,6 +30,14 @@ public class GameBoard {
         String jugadorIcono = "\uD83E\uDDCD";
         tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = jugadorIcono;
 
+        // Tesoro posicion aleatoria
+        int randomXTesoro = random.nextInt(TAMANIO);
+        int randomYTesoro = random.nextInt(TAMANIO);
+        jugador.setPositionXTesoro(randomXTesoro);
+        jugador.setPositionYTesoro(randomYTesoro);
+
+        String tesoroIcono = "";
+        tablero[jugador.getPositionXTesoro()][jugador.getPositionYTesoro()] = tesoroIcono;
         imprimirTablero();
     }
 
