@@ -8,6 +8,7 @@ public class Game {
 
     GameBoard tablero;
     Player jugador;
+    Result resultado;
 
     // Inicializa el tablero y el jugador en una posición aleatoria.
     public void empezarNuevoJuego(){
@@ -73,7 +74,10 @@ public class Game {
 
     // Muestra los resultados almacenados
     public void mostrarResultados(){
-        System.out.println("Mostrando resultados del tablero");
+        System.out.println("Resultados del tablero: ");
+        resultado = new Result();
+
+        resultado.resultado();
     }
 
     //Finaliza el juego
