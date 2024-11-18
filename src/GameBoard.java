@@ -36,7 +36,7 @@ public class GameBoard {
         jugador.setPositionXTesoro(randomXTesoro);
         jugador.setPositionYTesoro(randomYTesoro);
 
-        String tesoroIcono = "";
+        String tesoroIcono = "\uD83D\uDC8E";
         tablero[jugador.getPositionXTesoro()][jugador.getPositionYTesoro()] = tesoroIcono;
         imprimirTablero();
     }
