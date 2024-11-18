@@ -2,8 +2,10 @@ public class Player {
     final int movimientos = 10;
     final int vidas = 3;
     String nombre;
-    int positionX;
-    int positionY;
+    int positionXJugador;
+    int positionYJugador;
+    int positionXTesoro;
+    int positionYTesoro;
     int movimientosRestantes = movimientos;
 
     // Nombre
@@ -15,21 +17,21 @@ public class Player {
         this.nombre = nombre;
     }
 
-    //Posicion
-    public int getPositionX() {
-        return positionX;
+    //Posicion Jugador (x, y)
+    public int getPositionXJugador() {
+        return positionXJugador;
     }
 
-    public void setPositionX(int positionX) {
-        this.positionX = positionX;
+    public void setPositionXJugador(int positionXJugador) {
+        this.positionXJugador = positionXJugador;
     }
 
-    public int getPositionY() {
-        return positionY;
+    public int getPositionYJugador() {
+        return positionYJugador;
     }
 
-    public void setPositionY(int positionY) {
-        this.positionY = positionY;
+    public void setPositionYJugador(int positionYJugador) {
+        this.positionYJugador = positionYJugador;
     }
 
     // Vidas
@@ -44,5 +46,22 @@ public class Player {
 
     public void setMovimientos(int movimientosRestantes) {
         this.movimientosRestantes = movimientosRestantes;
+    }
+
+    // Posicion tesoro (x , y)
+    public void setPositionXTesoro(int positionXTesoro) {
+        this.positionXTesoro = positionXTesoro;
+    }
+
+    public int getPositionXTesoro() {
+        return positionXTesoro;
+    }
+
+    public void setPositionYTesoro(int positionYTesoro) {
+        this.positionYTesoro = positionYTesoro;
+    }
+
+    public int getPositionYTesoro(){
+        return positionYTesoro;
     }
 }
