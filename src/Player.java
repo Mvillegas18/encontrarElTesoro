@@ -2,10 +2,16 @@ public class Player {
     final int movimientos = 10;
     final int vidas = 3;
     String nombre;
+
     int positionXJugador;
     int positionYJugador;
+
     int positionXTesoro;
     int positionYTesoro;
+
+    int resultados;
+    int tiempoJugador;
+
     int movimientosRestantes = movimientos;
 
     // Nombre
@@ -63,5 +69,21 @@ public class Player {
 
     public int getPositionYTesoro(){
         return positionYTesoro;
+    }
+
+    // Resultados jugador
+    public void setResultados(int resultador) {
+        this.resultados = resultador;
+    }
+    public int getResultados() {
+        return resultados;
+    }
+
+    // Tiempo Jugador
+    public void setTiempoJugador(int tiempoJugador) {
+        this.tiempoJugador = tiempoJugador;
+    }
+    public int getTiempoJugador() {
+        return tiempoJugador;
     }
 }
