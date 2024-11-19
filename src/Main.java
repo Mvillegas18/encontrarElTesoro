@@ -21,9 +21,10 @@ public class Main {
         System.out.println("*                                                   *");
         System.out.println("*               Instrucciones del juego:            *");
         System.out.println("*                                                   *");
-        System.out.println("*          - Usa las flechas para moverte.          *");
-        System.out.println("*          - Evita las minas y encuentra el tesoro. *");
-        System.out.println("*                                                   *");
+        System.out.println("*  - Usa las flechas para moverte.                  *");
+        System.out.println("*  - Evita las minas y encuentra el tesoro.         *");
+        System.out.println("*  - Para ganar recorre el laberinto formando una L.*");
+        System.out.println("*  - Tienes 10 movimientos maximos y 3 vidas.       *");
         System.out.println("*****************************************************");
         System.out.println("*             ¡Buena suerte y que comience          *");
         System.out.println("*                    la aventura!                   *");
