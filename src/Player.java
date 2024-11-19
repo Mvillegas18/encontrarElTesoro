@@ -2,6 +2,8 @@ public class Player {
     final int movimientos = 10;
     final int vidas = 3;
     final int minas = 20;
+    final int PasosPermanentes=5;
+    final int PasosHacia=0;
     String nombre;
 
     int positionXJugador;
@@ -91,5 +93,12 @@ public class Player {
     //Minas
     public int getMinas(){
         return this.minas;
+    }
+
+    public int getPasosPermanentes(){
+        return this.PasosPermanentes;
+    }
+    public int getPasosHacia(){
+        return this.PasosHacia;
     }
 }
