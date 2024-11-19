@@ -9,6 +9,7 @@ public class Game {
     GameBoard tablero;
     Player jugador;
     Result resultado;
+    
 
     // Inicializa el tablero y el jugador en una posición aleatoria.
     public void empezarNuevoJuego(){
@@ -48,7 +49,9 @@ public class Game {
         if(jugador.getMovimientos() > 0){
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_UP:
-                        tablero.movimientoUP();
+                        if (jugador.getPasosHacia() < jugador.getPasosPermanentes()) {
+                            tablero.movimientoUP();
+                        }
                     break;
                 case KeyEvent.VK_DOWN:
                         tablero.movimientoDOWN();
