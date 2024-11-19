@@ -87,7 +87,9 @@ public class Player {
     public String getTiempoJugador() {
         return tiempoJugador;
     }
-    public int getminas(){
+
+    //Minas
+    public int getMinas(){
         return this.minas;
     }
 }

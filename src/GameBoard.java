@@ -39,7 +39,7 @@ public class GameBoard {
 
         MatrizMinas = new int[20][2];
 
-        for(int i=0 ; i<jugador.getminas() ; i++){
+        for(int i=0 ; i<jugador.getMinas(); i++){
             int randomXMinas;
             int randomYMinas;
             do{
