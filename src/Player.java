@@ -1,6 +1,7 @@
 public class Player {
     final int movimientos = 10;
     final int vidas = 3;
+    final int minas = 20;
     String nombre;
 
     int positionXJugador;
@@ -8,7 +9,7 @@ public class Player {
 
     int positionXTesoro;
     int positionYTesoro;
-
+    
     String resultados;
     String tiempoJugador;
 
@@ -85,5 +86,8 @@ public class Player {
     }
     public String getTiempoJugador() {
         return tiempoJugador;
+    }
+    public int getminas(){
+        return this.minas;
     }
 }

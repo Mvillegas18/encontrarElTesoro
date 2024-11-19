@@ -4,6 +4,7 @@ public class GameBoard {
 
     private final int TAMANIO = 40;
     private final String[][] tablero;
+    int[][] MatrizMinas;
 
     Player jugador;
 
@@ -36,8 +37,26 @@ public class GameBoard {
         jugador.setPositionXTesoro(randomXTesoro);
         jugador.setPositionYTesoro(randomYTesoro);
 
+        MatrizMinas = new int[20][2];
+
+        for(int i=0 ; i<jugador.getminas() ; i++){
+            int randomXMinas;
+            int randomYMinas;
+            do{
+                randomXMinas = random.nextInt(TAMANIO);
+                randomYMinas = random.nextInt(TAMANIO);
+
+            }while(tablero[randomXMinas][randomYMinas] != ".");
+            
+            MatrizMinas[i][0]=randomXMinas;
+            MatrizMinas[i][1]=randomYMinas;            
+        }
+
+
+
         System.out.println("El tesoro se encuentra en " + jugador.getPositionXTesoro() + " Y " + jugador.getPositionYTesoro());
         imprimirTablero();
+        System.out.println();
     }
 
     private void imprimirTablero(){
