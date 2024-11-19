@@ -12,7 +12,6 @@ public class Game {
 
     // Inicializa el tablero y el jugador en una posición aleatoria.
     public void empezarNuevoJuego(){
-        int resultados, tiempo;
         jugador = new Player();
         System.out.print("Ingresa tu nombre para comenzar: ");
         String nombre = entrada.nextLine();
