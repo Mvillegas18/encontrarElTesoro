@@ -65,26 +65,25 @@ public class GameBoard {
         return x >= 0 && x < TAMANIO && y >= 0 && y < TAMANIO && tablero[x][y].equals(".");
     }
 
-        MatrizMinas = new int[20][2];
+    private void mostrarMinas(){
 
-        for(int i=0 ; i<jugador.getMinas(); i++){
-            int randomXMinas;
-            int randomYMinas;
-            do{
+        // Llenar una matriz bidimensional con las coordenadas de las minas
+        MatrizMinas = new int[20][2];
+        for (int i = 0; i < 20; i++) {
+            int randomXMinas, randomYMinas;
+            do {
                 randomXMinas = random.nextInt(TAMANIO);
                 randomYMinas = random.nextInt(TAMANIO);
+            } while (!esPosicionValida(randomXMinas, randomYMinas) || estaEnPerimetro(jugador.getPositionXTesoro(), jugador.getPositionYTesoro(), randomXMinas, randomYMinas));
 
-            }while(tablero[randomXMinas][randomYMinas] != ".");
-            
-            MatrizMinas[i][0]=randomXMinas;
-            MatrizMinas[i][1]=randomYMinas;            
+            MatrizMinas[i][0] = randomXMinas;
+            MatrizMinas[i][1] = randomYMinas;
+            tablero[randomXMinas][randomYMinas] = "\uD83D\uDCA3"; // Mina
         }
+    }
 
-
-
-        System.out.println("El tesoro se encuentra en " + jugador.getPositionXTesoro() + " Y " + jugador.getPositionYTesoro());
-        imprimirTablero();
-        System.out.println();
+    private boolean estaEnPerimetro(int xTesoro, int yTesoro, int xMina, int yMina) {
+        return Math.abs(xTesoro - xMina) <= 1 && Math.abs(yTesoro - yMina) <= 1;
     }
 
     private void imprimirTablero(){
