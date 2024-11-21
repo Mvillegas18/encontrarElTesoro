@@ -7,6 +7,7 @@ public class GameBoard {
     int[][] MatrizMinas;
 
     Player jugador;
+    Random random;
 
     public GameBoard() {
         tablero = new String[TAMANIO][TAMANIO];
@@ -20,7 +21,7 @@ public class GameBoard {
         }
 
         jugador = new Player();
-        Random random = new Random();
+        random = new Random();
         // Jugador posicion aleatoriaa
 
         int randomXJugador = random.nextInt(TAMANIO);
