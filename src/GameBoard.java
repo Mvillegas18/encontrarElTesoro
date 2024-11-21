@@ -30,11 +30,31 @@ public class GameBoard {
         jugador.setPositionYJugador(randomYJugador);
 
         String jugadorIcono = "\uD83E\uDDCD";
-        tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = jugadorIcono;
+        tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
 
-        // Tesoro posicion aleatoria
-        int randomXTesoro = random.nextInt(TAMANIO);
-        int randomYTesoro = random.nextInt(TAMANIO);
+        // Distancia de 10 pasos formando una L
+        posicionTesoroJugador();
+
+        mostrarMinas();
+
+
+        imprimirTablero();
+        System.out.println();
+    }
+
+    public void posicionTesoroJugador(){
+        random = new Random();
+        int randomXTesoro, randomYTesoro;
+        do {
+            int deltaX = random.nextBoolean() ? 8 : 2; // Parte larga o corta en X
+            int deltaY = jugador.getMovimientos() - deltaX;   // Complemento para sumar 10
+
+            // Determinar la dirección del desplazamiento (positiva o negativa)
+            randomXTesoro = jugador.getPositionXJugador() + (random.nextBoolean() ? deltaX : -deltaX);
+            randomYTesoro = jugador.getPositionYJugador() + (random.nextBoolean() ? deltaY : -deltaY);
+
+        } while (!esPosicionValida(randomXTesoro, randomYTesoro));
+
         jugador.setPositionXTesoro(randomXTesoro);
         jugador.setPositionYTesoro(randomYTesoro);
 
