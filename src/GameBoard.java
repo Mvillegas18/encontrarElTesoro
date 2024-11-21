@@ -57,6 +57,13 @@ public class GameBoard {
 
         jugador.setPositionXTesoro(randomXTesoro);
         jugador.setPositionYTesoro(randomYTesoro);
+        /*String tesoroIcono = "\uD83C\uDF81";*/
+        tablero[jugador.getPositionXTesoro()][jugador.getPositionYTesoro()] = "$";
+    }
+
+    private boolean esPosicionValida(int x, int y) {
+        return x >= 0 && x < TAMANIO && y >= 0 && y < TAMANIO && tablero[x][y].equals(".");
+    }
 
         MatrizMinas = new int[20][2];
 
