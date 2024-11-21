@@ -78,7 +78,7 @@ public class GameBoard {
 
             MatrizMinas[i][0] = randomXMinas;
             MatrizMinas[i][1] = randomYMinas;
-            tablero[randomXMinas][randomYMinas] = "\uD83D\uDCA3"; // Mina
+            tablero[randomXMinas][randomYMinas] = "X"; // Mina
         }
     }
 
