@@ -1,7 +1,4 @@
 import java.util.Scanner;
-import javax.swing.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class Game {
     final Scanner entrada = new Scanner(System.in);
@@ -9,7 +6,6 @@ public class Game {
     GameBoard tablero;
     Player jugador;
     Result resultado;
-    
 
     // Inicializa el tablero y el jugador en una posición aleatoria.
     public void empezarNuevoJuego(){
@@ -27,51 +23,46 @@ public class Game {
         tecladoConfiguracion();
     }
 
-    public void tecladoConfiguracion(){
-        JFrame ventana = new JFrame();
-        ventana.setTitle("Juego");
-        ventana.setSize(500, 500);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                moverJugador(e);
+    // Configuración del teclado, leyendo las teclas W, A, S, D para el movimiento
+    public void tecladoConfiguracion() {
+        while (true) {
+            System.out.println("Usa las teclas 'W', 'A', 'S', 'D' para moverte:");
+            System.out.print("W - Arriba, A - Izquierda, S - Abajo, D - Derecha, X - Salir: ");
+            String movimiento = entrada.nextLine().toUpperCase(); // Leer movimiento en mayúsculas
+
+            if (movimiento.equals("X")) {
+                salir();
+                break; // Salir del bucle y terminar el juego
             }
-        });
-
-        ventana.setVisible(true);
-        ventana.setFocusable(true);
-    }
-
-    // Llama a la clase GameBoard para actualizar la posición del jugador según la dirección.
-    public void moverJugador(KeyEvent e){
-        int keyCode = e.getKeyCode();
-        if(jugador.getMovimientos() > 0){
-            switch (e.getKeyCode()) {
-                case KeyEvent.VK_UP:
-                        if (jugador.getPasosHacia() < jugador.getPasosPermanentes()) {
-                            tablero.movimientoUP();
-                        }
-                    break;
-                case KeyEvent.VK_DOWN:
+            if(jugador.getMovimientos() > 0) {
+                switch (movimiento) {
+                    case "W":
+                        tablero.movimientoUP();
+                        break;
+                    case "S":
                         tablero.movimientoDOWN();
-                    break;
-                case KeyEvent.VK_LEFT:
+                        break;
+                    case "A":
                         tablero.movimientoLEFT();
-                    break;
-                case KeyEvent.VK_RIGHT:
+                        break;
+                    case "D":
                         tablero.movimientoRIGHT();
-                    break;
+                        break;
+                    default:
+                        System.out.println("Movimiento no válido. Usa 'W', 'A', 'S' o 'D'.");
+                }
+                jugador.setMovimientos(jugador.getMovimientos() - 1);
+            }else{
+                System.out.println("Sin movimientos restantes");
             }
-            jugador.setMovimientos(jugador.getMovimientos() - 1);
-        }else{
-            System.out.println("Sin movimientos restantes");
+            // Resto de la lógica del juego (como verificar estado, etc.)
+            verificarEstadoTablero();
         }
-
     }
 
     public void verificarEstadoTablero(){
-        System.out.println("Verificando estado del tablero");
+        System.out.println("Verificando estado del tablero...");
+        // Agregar lógica de verificación del estado del tablero si es necesario
     }
 
     // Muestra los resultados almacenados
@@ -82,8 +73,8 @@ public class Game {
         resultado.resultado();
     }
 
-    //Finaliza el juego
+    // Finaliza el juego
     public void salir(){
-        System.out.println("Saliendo del juego");
+        System.out.println("Saliendo del juego.");
     }
 }
