@@ -102,11 +102,10 @@ public class GameBoard {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
         } else {
-            System.out.println("No más movimientos hacia arriba");
+            System.out.println("No más movimientos hacia arriba.");
         }
     }
 
-    // Movimiento hacia abajo
     public void movimientoDOWN() {
         if (jugador.getPositionYJugador() < TAMANIO - 1) {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
@@ -118,7 +117,6 @@ public class GameBoard {
         }
     }
 
-    // Movimiento hacia la izquierda
     public void movimientoLEFT() {
         if (jugador.getPositionXJugador() > 0) {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
@@ -126,11 +124,10 @@ public class GameBoard {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
         } else {
-            System.out.println("No más movimientos hacia la izquierda");
+            System.out.println("No más movimientos hacia la izquierda.");
         }
     }
 
-    // Movimiento hacia la derecha
     public void movimientoRIGHT() {
         if (jugador.getPositionXJugador() < TAMANIO - 1) {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
@@ -138,7 +135,8 @@ public class GameBoard {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
         } else {
-            System.out.println("No más movimientos hacia la derecha");
+            System.out.println("No más movimientos hacia la derecha.");
         }
     }
+
 }
