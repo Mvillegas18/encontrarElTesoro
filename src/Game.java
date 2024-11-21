@@ -25,31 +25,31 @@ public class Game {
 
     // Configuración del teclado, leyendo las teclas W, A, S, D para el movimiento
     public void tecladoConfiguracion() {
-        while (true) {
-            System.out.println("Usa las teclas 'W', 'A', 'S', 'D' para moverte:");
-            System.out.print("W - Arriba, A - Izquierda, S - Abajo, D - Derecha, X - Salir: ");
-            String movimiento = entrada.nextLine().toUpperCase(); // Leer movimiento en mayúsculas
+        while (jugador.getMovimientos() > 0) {
+            System.out.println("Usa las teclas 'w', 'a', 's', 'd' para moverte:");
+            System.out.print("w - Arriba, a - Izquierda, s - Abajo, d - Derecha, x - Salir: ");
+            String movimiento = entrada.nextLine();// Leer movimiento en mayúsculas
 
-            if (movimiento.equals("X")) {
+            if (movimiento.equals("x")) {
                 salir();
                 break; // Salir del bucle y terminar el juego
             }
             if(jugador.getMovimientos() > 0) {
                 switch (movimiento) {
-                    case "W":
+                    case "w":
                         tablero.movimientoUP();
                         break;
-                    case "S":
+                    case "s":
                         tablero.movimientoDOWN();
                         break;
-                    case "A":
+                    case "a":
                         tablero.movimientoLEFT();
                         break;
-                    case "D":
+                    case "d":
                         tablero.movimientoRIGHT();
                         break;
                     default:
-                        System.out.println("Movimiento no válido. Usa 'W', 'A', 'S' o 'D'.");
+                        System.out.println("Movimiento no válido. Usa 'w', 'a', 's' o 'd'.");
                 }
                 jugador.setMovimientos(jugador.getMovimientos() - 1);
             }else{
