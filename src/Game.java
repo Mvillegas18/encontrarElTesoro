@@ -24,41 +24,40 @@ public class Game {
     }
 
     // Configuración del teclado, leyendo las teclas W, A, S, D para el movimiento
+
     public void tecladoConfiguracion() {
         while (jugador.getMovimientos() > 0) {
             System.out.println("Usa las teclas 'w', 'a', 's', 'd' para moverte:");
             System.out.print("w - Arriba, a - Izquierda, s - Abajo, d - Derecha, x - Salir: ");
-            String movimiento = entrada.nextLine();// Leer movimiento en mayúsculas
+            String movimiento = entrada.nextLine();
 
-            if (movimiento.equals("x")) {
-                salir();
-                break; // Salir del bucle y terminar el juego
+            switch (movimiento) {
+                case "w":
+                    tablero.movimientoLEFT();
+                    break;
+                case "s":
+                    tablero.movimientoRIGHT();
+                    break;
+                case "a":
+                    tablero.movimientoUP();
+                    break;
+                case "d":
+                    tablero.movimientoDOWN();
+                    break;
+                case "x":
+                    salir();
+                    return; // Terminar el juego
+                default:
+                    System.out.println("Movimiento no válido. Usa 'w', 'a', 's', 'd'.");
+                    continue;
             }
-            if(jugador.getMovimientos() > 0) {
-                switch (movimiento) {
-                    case "w":
-                        tablero.movimientoUP();
-                        break;
-                    case "s":
-                        tablero.movimientoDOWN();
-                        break;
-                    case "a":
-                        tablero.movimientoLEFT();
-                        break;
-                    case "d":
-                        tablero.movimientoRIGHT();
-                        break;
-                    default:
-                        System.out.println("Movimiento no válido. Usa 'w', 'a', 's' o 'd'.");
-                }
-                jugador.setMovimientos(jugador.getMovimientos() - 1);
-            }else{
-                System.out.println("Sin movimientos restantes");
-            }
-            // Resto de la lógica del juego (como verificar estado, etc.)
+
+            jugador.setMovimientos(jugador.getMovimientos() - 1); // Reducir movimientos restantes
             verificarEstadoTablero();
         }
+        System.out.println("Sin movimientos restantes.");
     }
+
 
     public void verificarEstadoTablero(){
         System.out.println("Verificando estado del tablero...");
