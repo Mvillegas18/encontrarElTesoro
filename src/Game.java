@@ -62,7 +62,6 @@ public class Game {
 
     public void verificarEstadoTablero(){
         System.out.println("Verificando estado del tablero...");
-        // Agregar lógica de verificación del estado del tablero si es necesario
     }
 
     // Muestra los resultados almacenados

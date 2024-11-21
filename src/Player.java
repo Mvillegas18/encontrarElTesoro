@@ -2,8 +2,6 @@ public class Player {
     final int movimientos = 10;
     final int vidas = 3;
     final int minas = 20;
-    final int PasosPermanentes=5;
-    final int PasosHacia=0;
     String nombre;
 
     int positionXJugador;
@@ -11,7 +9,7 @@ public class Player {
 
     int positionXTesoro;
     int positionYTesoro;
-    
+
     String resultados;
     String tiempoJugador;
 
@@ -26,7 +24,7 @@ public class Player {
         this.nombre = nombre;
     }
 
-    //Posicion Jugador (x, y)
+    // Posicion Jugador (x, y)
     public int getPositionXJugador() {
         return positionXJugador;
     }
@@ -50,7 +48,7 @@ public class Player {
 
     // Movimientos
     public int getMovimientos() {
-        return movimientos;
+        return movimientosRestantes;
     }
 
     public void setMovimientos(int movimientosRestantes) {
@@ -70,7 +68,7 @@ public class Player {
         this.positionYTesoro = positionYTesoro;
     }
 
-    public int getPositionYTesoro(){
+    public int getPositionYTesoro() {
         return positionYTesoro;
     }
 
@@ -78,6 +76,7 @@ public class Player {
     public void setResultados(String resultados) {
         this.resultados = resultados;
     }
+
     public String getResultados() {
         return resultados;
     }
@@ -86,19 +85,13 @@ public class Player {
     public void setTiempoJugador(String tiempoJugador) {
         this.tiempoJugador = tiempoJugador;
     }
+
     public String getTiempoJugador() {
         return tiempoJugador;
     }
 
-    //Minas
-    public int getMinas(){
+    // Minas
+    public int getMinas() {
         return this.minas;
-    }
-
-    public int getPasosPermanentes(){
-        return this.PasosPermanentes;
-    }
-    public int getPasosHacia(){
-        return this.PasosHacia;
     }
 }

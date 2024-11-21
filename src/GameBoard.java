@@ -95,45 +95,50 @@ public class GameBoard {
         }
     }
 
-    public void movimientoUP(){
+    public void movimientoUP() {
         if (jugador.getPositionYJugador() > 0) {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
             jugador.setPositionYJugador(jugador.getPositionYJugador() - 1);
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "\uD83E\uDDCD";
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
-        }else{
-            System.out.println("No mas movimientos hacia arriba");
+        } else {
+            System.out.println("No más movimientos hacia arriba");
         }
-
     }
-    public void movimientoDOWN(){
+
+    // Movimiento hacia abajo
+    public void movimientoDOWN() {
         if (jugador.getPositionYJugador() < TAMANIO - 1) {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
             jugador.setPositionYJugador(jugador.getPositionYJugador() + 1);
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "\uD83E\uDDCD";
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
         } else {
             System.out.println("No puedes moverte más abajo.");
         }
     }
-    public void movimientoLEFT(){
+
+    // Movimiento hacia la izquierda
+    public void movimientoLEFT() {
         if (jugador.getPositionXJugador() > 0) {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
             jugador.setPositionXJugador(jugador.getPositionXJugador() - 1);
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "\uD83E\uDDCD";
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
-        }else{
-            System.out.println("No mas movimientos hacia izquierda");
+        } else {
+            System.out.println("No más movimientos hacia la izquierda");
         }
     }
-    public void movimientoRIGHT(){
+
+    // Movimiento hacia la derecha
+    public void movimientoRIGHT() {
         if (jugador.getPositionXJugador() < TAMANIO - 1) {
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
             jugador.setPositionXJugador(jugador.getPositionXJugador() + 1);
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "\uD83E\uDDCD";
+            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
-        }else{
-            System.out.println("No mas movimientos hacia derecha");
+        } else {
+            System.out.println("No más movimientos hacia la derecha");
         }
     }
 }
