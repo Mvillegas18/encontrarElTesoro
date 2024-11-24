@@ -104,12 +104,37 @@ public class GameBoard {
         return false;
     }
 
+    private boolean verificarMina() {
+        int xJugador = jugador.getPositionXJugador();
+        int yJugador = jugador.getPositionYJugador();
+
+        for (int[] mina : MatrizMinas) {
+            if (mina[0] == xJugador && mina[1] == yJugador) {
+                return true; // El jugador está en una mina
+            }
+        }
+        return false; // No está en una mina
+    }
+
+    private void verificarEstadoJugador() {
+        if (verificarMina()) {
+            jugador.vidas--; // Reducir una vida
+            System.out.println("💥 ¡Has pisado una mina! Vidas restantes: " + jugador.vidas);
+
+            if (jugador.vidas <= 0) {
+                System.out.println("❌ Has perdido todas tus vidas. ¡Juego terminado!");
+                System.exit(0); // Terminar el programa
+            }
+        }
+    }
+
     public void movimientoLEFT() {
         if (jugador.getPositionYJugador() > 0) { // Validar límite superior
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*"; // Limpiar posición anterior
             jugador.setPositionYJugador(jugador.getPositionYJugador() - 1); // Mover hacia arriba
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P"; // Nueva posición
             imprimirTablero();
+            verificarEstadoJugador();
             if(verificarGanador()) return;
         } else {
             System.out.println("No más movimientos hacia la izquierda.");
@@ -122,6 +147,7 @@ public class GameBoard {
             jugador.setPositionYJugador(jugador.getPositionYJugador() + 1); // Mover hacia abajo
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
+            verificarEstadoJugador();
             if(verificarGanador()) return;
         } else {
             System.out.println("No puedes moverte hacia la derecha.");
@@ -134,6 +160,7 @@ public class GameBoard {
             jugador.setPositionXJugador(jugador.getPositionXJugador() - 1); // Mover hacia la izquierda
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
+            verificarEstadoJugador();
             if(verificarGanador()) return;
         } else {
             System.out.println("No más movimientos hacia arriba.");
@@ -146,6 +173,7 @@ public class GameBoard {
             jugador.setPositionXJugador(jugador.getPositionXJugador() + 1); // Mover hacia la derecha
             tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
             imprimirTablero();
+            verificarEstadoJugador();
             if(verificarGanador()) return;
         } else {
             System.out.println("No más movimientos hacia abajo.");

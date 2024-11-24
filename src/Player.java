@@ -1,6 +1,6 @@
 public class Player {
     final int movimientos = 10;
-    final int vidas = 3;
+    int vidas = 3;
     final int minas = 20;
     String nombre;
 

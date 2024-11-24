@@ -26,10 +26,11 @@ public class Game {
     // Configuración del teclado, leyendo las teclas W, A, S, D para el movimiento
 
     public void tecladoConfiguracion() {
+        String movimiento;
         while (jugador.getMovimientos() > 0) {
             System.out.println("Usa las teclas 'w', 'a', 's', 'd' para moverte:");
             System.out.print("w - Arriba, a - Izquierda, s - Abajo, d - Derecha, x - Salir: ");
-            String movimiento = entrada.nextLine();
+            movimiento = entrada.nextLine();
 
             switch (movimiento) {
                 case "w":
@@ -71,5 +72,6 @@ public class Game {
     // Finaliza el juego
     public void salir(){
         System.out.println("Saliendo del juego.");
+        return;
     }
 }
