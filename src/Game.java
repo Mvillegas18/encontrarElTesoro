@@ -33,16 +33,16 @@ public class Game {
 
             switch (movimiento) {
                 case "w":
-                    tablero.movimientoLEFT();
-                    break;
-                case "s":
-                    tablero.movimientoRIGHT();
-                    break;
-                case "a":
                     tablero.movimientoUP();
                     break;
-                case "d":
+                case "s":
                     tablero.movimientoDOWN();
+                    break;
+                case "a":
+                    tablero.movimientoLEFT();
+                    break;
+                case "d":
+                    tablero.movimientoRIGHT();
                     break;
                 case "x":
                     salir();
@@ -53,15 +53,12 @@ public class Game {
             }
 
             jugador.setMovimientos(jugador.getMovimientos() - 1); // Reducir movimientos restantes
-            verificarEstadoTablero();
         }
         System.out.println("Sin movimientos restantes.");
     }
 
 
-    public void verificarEstadoTablero(){
-        System.out.println("Verificando estado del tablero...");
-    }
+
 
     // Muestra los resultados almacenados
     public void mostrarResultados(){
