@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.time.Duration;
+import java.time.Instant;
 
 public class Game {
     final Scanner entrada = new Scanner(System.in);
@@ -19,9 +21,23 @@ public class Game {
         System.out.println("Nombre: " + jugador.getNombre() + "\t Vidas: " + jugador.vidas );
         System.out.println("Haz sido lanzado aleatoriamente en el laberinto");
 
+        Instant tiempoInicio = Instant.now();
+
         tablero = new GameBoard();
         tablero.inicializarTablero();
         tecladoConfiguracion();
+
+        // Registrar el tiempo de fin y calcular el tiempo total
+        Instant tiempoFin = Instant.now();
+        Duration duracion = Duration.between(tiempoInicio, tiempoFin);
+        long segundosTotales = duracion.getSeconds();
+        long minutos = segundosTotales / 60;
+        long segundos = segundosTotales % 60;
+
+        String tiempoFormato = minutos > 0
+                ? minutos + " min " + segundos + " seg"
+                : segundos + " seg";
+        jugador.setTiempoJugador(tiempoFormato);
 
         if (resultado == null) {
             resultado = new Result();

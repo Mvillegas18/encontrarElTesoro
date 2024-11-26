@@ -1,7 +1,7 @@
 public class Player {
     final int movimientos = 10;
     int vidas = 3;
-    final int minas = 20;
+    final int minas = 35;
     String nombre;
 
     int positionXJugador;

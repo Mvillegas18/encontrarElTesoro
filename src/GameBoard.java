@@ -67,8 +67,8 @@ public class GameBoard {
     private void mostrarMinas(){
 
         // Llenar una matriz bidimensional con las coordenadas de las minas
-        MatrizMinas = new int[20][2];
-        for (int i = 0; i < 20; i++) {
+        MatrizMinas = new int[35][2];
+        for (int i = 0; i < 35; i++) {
             int randomXMinas, randomYMinas;
             do {
                 randomXMinas = random.nextInt(TAMANIO);
