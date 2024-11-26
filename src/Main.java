@@ -36,7 +36,6 @@ public class Main {
             Scanner entrada = new Scanner(System.in);
             Game game = new Game();
             boolean continuar = true;
-
             while (continuar) {
                 System.out.println("\nIngresa una opción: ");
                 System.out.println("1. Nuevo juego\n2. Ver resultados\n3. Salir");

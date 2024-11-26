@@ -27,18 +27,21 @@ public class Game {
             resultado = new Result();
         }
 
-        String resultadoTabla = tablero.verificarGanador() ? "Gano" : "Perdio";
+        // Determinar si el jugador ganó
+        boolean gano = tablero.verificarGanador();
+        String resultadoTabla = gano ? "Gano" : "Perdio";
         jugador.setResultados(resultadoTabla);
         resultado.resultado(jugador);
 
-        return tablero.verificarGanador(); // True si el jugador ganó
+        return gano; // Devuelve true si ganó
     }
 
     // Configuración del teclado, leyendo las teclas W, A, S, D para el movimiento
 
     public void tecladoConfiguracion() {
         String movimiento;
-        while (jugador.getMovimientos() > 0) {
+        boolean juegoTerminado = false;
+        while (jugador.getMovimientos() > 0 && !juegoTerminado) {
             System.out.println("Usa las teclas 'w', 'a', 's', 'd' para moverte:");
             System.out.print("w - Arriba, a - Izquierda, s - Abajo, d - Derecha, x - Salir: ");
             movimiento = entrada.nextLine();
@@ -66,13 +69,19 @@ public class Game {
 
             jugador.setMovimientos(jugador.getMovimientos() - 1); // Reducir movimientos restantes
 
-            if (tablero.verificarGanador() || jugador.getVidas() <= 0) {
-                break; // Salir del bucle si el juego terminó
+            if (tablero.verificarGanador()) {
+                juegoTerminado = true; // Detener el bucle
+            }
+
+            // Verificar si el jugador perdió todas sus vidas
+            if (jugador.getVidas() <= 0) {
+                System.out.println("❌ Has perdido todas tus vidas.");
+                juegoTerminado = true;
             }
         }
 
-        if (jugador.getMovimientos() <= 0) {
-            System.out.println("Sin movimientos restantes.");
+        if (!juegoTerminado) {
+            System.out.println("Sin movimientos restantes. ¡Perdiste!");
         }
     }
 
