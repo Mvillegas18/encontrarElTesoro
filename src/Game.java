@@ -6,9 +6,10 @@ public class Game {
     GameBoard tablero;
     Player jugador;
     Result resultado;
+    GameBoard gameBoard;
 
     // Inicializa el tablero y el jugador en una posición aleatoria.
-    public void empezarNuevoJuego(){
+    public boolean empezarNuevoJuego(){
         jugador = new Player();
         System.out.print("Ingresa tu nombre para comenzar: ");
         String nombre = entrada.nextLine();
@@ -21,6 +22,16 @@ public class Game {
         tablero = new GameBoard();
         tablero.inicializarTablero();
         tecladoConfiguracion();
+
+        if (resultado == null) {
+            resultado = new Result();
+        }
+
+        String resultadoTabla = tablero.verificarGanador() ? "Gano" : "Perdio";
+        jugador.setResultados(resultadoTabla);
+        resultado.resultado(jugador);
+
+        return tablero.verificarGanador(); // True si el jugador ganó
     }
 
     // Configuración del teclado, leyendo las teclas W, A, S, D para el movimiento
@@ -54,19 +65,27 @@ public class Game {
             }
 
             jugador.setMovimientos(jugador.getMovimientos() - 1); // Reducir movimientos restantes
+
+            if (tablero.verificarGanador() || jugador.getVidas() <= 0) {
+                break; // Salir del bucle si el juego terminó
+            }
         }
-        System.out.println("Sin movimientos restantes.");
+
+        if (jugador.getMovimientos() <= 0) {
+            System.out.println("Sin movimientos restantes.");
+        }
     }
 
 
 
 
     // Muestra los resultados almacenados
-    public void mostrarResultados(){
-        System.out.println("Resultados del tablero: ");
-        resultado = new Result();
-
-        resultado.resultado();
+    public void mostrarResultados() {
+        if (resultado != null) {
+            resultado.mostrarTabla();
+        } else {
+            System.out.println("No hay resultados disponibles.");
+        }
     }
 
     // Finaliza el juego

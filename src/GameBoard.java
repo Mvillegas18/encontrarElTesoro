@@ -116,16 +116,17 @@ public class GameBoard {
         return false; // No está en una mina
     }
 
-    private void verificarEstadoJugador() {
+    public boolean verificarEstadoJugador() {
         if (verificarMina()) {
             jugador.vidas--; // Reducir una vida
             System.out.println("💥 ¡Has pisado una mina! Vidas restantes: " + jugador.vidas);
 
             if (jugador.vidas <= 0) {
                 System.out.println("❌ Has perdido todas tus vidas. ¡Juego terminado!");
-                System.exit(0); // Terminar el programa
+                return true; // Terminar el programa
             }
         }
+        return false;
     }
 
     public void movimientoLEFT() {

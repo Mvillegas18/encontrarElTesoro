@@ -94,4 +94,6 @@ public class Player {
     public int getMinas() {
         return this.minas;
     }
+
+
 }

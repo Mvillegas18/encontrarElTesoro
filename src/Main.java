@@ -33,23 +33,35 @@ public class Main {
     }
 
     public static void menu() {
-        Scanner entrada = new Scanner(System.in);
-        System.out.println("Ingresa una opcion: ");
-        System.out.println("1. Nuevo juego\n2. Ver resultados\n3. Salir");
-        System.out.print("\uD83D\uDC49 ");
+            Scanner entrada = new Scanner(System.in);
+            Game game = new Game();
+            boolean continuar = true;
 
-        Game game = new Game();
+            while (continuar) {
+                System.out.println("\nIngresa una opción: ");
+                System.out.println("1. Nuevo juego\n2. Ver resultados\n3. Salir");
+                System.out.print("\uD83D\uDC49 ");
+                int opcion = entrada.nextInt();
+                entrada.nextLine(); // Consumir salto de línea
 
-        int opcion = entrada.nextInt();
-        entrada.nextLine();
-
-        if (opcion == 1) {
-            game.empezarNuevoJuego();
-        }else if (opcion == 2) {
-            game.mostrarResultados();
-        }else if (opcion == 3) {
-            game.salir();
-        }
-
+                switch (opcion) {
+                    case 1:
+                        boolean juegoActivo = game.empezarNuevoJuego(); // Inicia el juego
+                        if (!juegoActivo) {
+                            System.out.println("El juego terminó.");
+                        }
+                        break;
+                    case 2:
+                        game.mostrarResultados(); // Ver resultados
+                        break;
+                    case 3:
+                        game.salir(); // Salir
+                        continuar = false;
+                        break;
+                    default:
+                        System.out.println("Opción no válida. Inténtalo de nuevo.");
+                }
+            }
+            entrada.close();
     }
 }

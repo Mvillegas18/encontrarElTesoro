@@ -2,18 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Result {
-    Player jugador;
+    private final List<String[]> resultados = new ArrayList<>();
 
-    public void resultado() {
-        List<String[]> resultados = new ArrayList <String[]> ();
-
-        jugador = new Player();
-        resultados.add(new String[] {jugador.getNombre(), jugador.getTiempoJugador(), jugador.getResultados()});
-
-        mostrarTabla(resultados);
+    public void resultado(Player jugador) {
+        // Añade los datos del jugador al historial de resultados
+        resultados.add(new String[]{
+                jugador.getNombre(),
+                jugador.getTiempoJugador() != null ? jugador.getTiempoJugador() : "N/A",
+                jugador.getResultados() != null ? jugador.getResultados() : "N/A"
+        });
     }
 
-    public void mostrarTabla(List<String[]> resultados) {
+    public void mostrarTabla() {
         // Imprimir encabezado
         System.out.println("+-----------------+----------------+-----------+");
         System.out.printf("| %-15s | %-14s | %-9s |\n", "Jugador", "Tiempo", "Resultado");
