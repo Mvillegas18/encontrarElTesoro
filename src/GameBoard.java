@@ -130,55 +130,94 @@ public class GameBoard {
     }
 
     public void movimientoLEFT() {
-        if (jugador.getPositionYJugador() > 0) { // Validar límite superior
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*"; // Limpiar posición anterior
-            jugador.setPositionYJugador(jugador.getPositionYJugador() - 1); // Mover hacia arriba
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P"; // Nueva posición
+        if (jugador.getPositionYJugador() > 0) { // Validar límite izquierdo
+            int nuevaPosX = jugador.getPositionXJugador();
+            int nuevaPosY = jugador.getPositionYJugador() - 1;
+
+            // Verificar la nueva posición antes de moverse
+            if (tablero[nuevaPosX][nuevaPosY].equals("*")) {
+                // Actualizar posición actual dejando un "."
+                tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+            } else {
+                // Actualizar posición actual dejando un "*"
+                tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
+            }
+
+            // Mover al jugador a la nueva posición
+            jugador.setPositionYJugador(nuevaPosY);
+            tablero[nuevaPosX][nuevaPosY] = "P"; // Colocar al jugador en la nueva posición
+
             imprimirTablero();
             verificarEstadoJugador();
-            if(verificarGanador()) return;
+            if (verificarGanador()) return;
         } else {
             System.out.println("No más movimientos hacia la izquierda.");
         }
     }
 
     public void movimientoRIGHT() {
-        if (jugador.getPositionYJugador() < TAMANIO - 1) { // Validar límite inferior
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
-            jugador.setPositionYJugador(jugador.getPositionYJugador() + 1); // Mover hacia abajo
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
+        if (jugador.getPositionYJugador() < TAMANIO - 1) { // Validar límite derecho
+            int nuevaPosX = jugador.getPositionXJugador();
+            int nuevaPosY = jugador.getPositionYJugador() + 1;
+
+            if (tablero[nuevaPosX][nuevaPosY].equals("*")) {
+                tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+            } else {
+                tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
+            }
+
+            jugador.setPositionYJugador(nuevaPosY);
+            tablero[nuevaPosX][nuevaPosY] = "P";
+
             imprimirTablero();
             verificarEstadoJugador();
-            if(verificarGanador()) return;
+            if (verificarGanador()) return;
         } else {
             System.out.println("No puedes moverte hacia la derecha.");
         }
     }
 
     public void movimientoUP() {
-        if (jugador.getPositionXJugador() > 0) { // Validar límite izquierdo
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
-            jugador.setPositionXJugador(jugador.getPositionXJugador() - 1); // Mover hacia la izquierda
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
+        if (jugador.getPositionXJugador() > 0) { // Validar límite superior
+            int nuevaPosX = jugador.getPositionXJugador() - 1;
+            int nuevaPosY = jugador.getPositionYJugador();
+
+            if (tablero[nuevaPosX][nuevaPosY].equals("*")) {
+                tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+            } else {
+                tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
+            }
+
+            jugador.setPositionXJugador(nuevaPosX);
+            tablero[nuevaPosX][nuevaPosY] = "P";
+
             imprimirTablero();
             verificarEstadoJugador();
-            if(verificarGanador()) return;
+            if (verificarGanador()) return;
         } else {
             System.out.println("No más movimientos hacia arriba.");
         }
     }
 
     public void movimientoDOWN() {
-        if (jugador.getPositionXJugador() < TAMANIO - 1) { // Validar límite derecho
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
-            jugador.setPositionXJugador(jugador.getPositionXJugador() + 1); // Mover hacia la derecha
-            tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "P";
+        if (jugador.getPositionXJugador() < TAMANIO - 1) { // Validar límite inferior
+            int nuevaPosX = jugador.getPositionXJugador() + 1;
+            int nuevaPosY = jugador.getPositionYJugador();
+
+            if (tablero[nuevaPosX][nuevaPosY].equals("*")) {
+                tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+            } else {
+                tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
+            }
+
+            jugador.setPositionXJugador(nuevaPosX);
+            tablero[nuevaPosX][nuevaPosY] = "P";
+
             imprimirTablero();
             verificarEstadoJugador();
-            if(verificarGanador()) return;
+            if (verificarGanador()) return;
         } else {
             System.out.println("No más movimientos hacia abajo.");
         }
     }
-
 }
