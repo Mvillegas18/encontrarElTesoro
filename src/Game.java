@@ -22,7 +22,7 @@ public class Game {
         System.out.println("Haz sido lanzado aleatoriamente en el laberinto");
 
         Instant tiempoInicio = Instant.now();
-
+        gameBoard = new GameBoard();
         tablero = new GameBoard();
         tablero.inicializarTablero();
         tecladoConfiguracion();
@@ -53,11 +53,10 @@ public class Game {
     }
 
     // Configuración del teclado, leyendo las teclas W, A, S, D para el movimiento
-
     public void tecladoConfiguracion() {
         String movimiento;
         boolean juegoTerminado = false;
-        while (jugador.getMovimientos() > 0 && !juegoTerminado) {
+        while (jugador.getMovimientos() > 0 && !juegoTerminado && tablero.contador > 0) {
             System.out.println("Usa las teclas 'w', 'a', 's', 'd' para moverte:");
             System.out.print("w - Arriba, a - Izquierda, s - Abajo, d - Derecha, x - Salir: ");
             movimiento = entrada.nextLine();
@@ -99,9 +98,6 @@ public class Game {
             System.out.println("Sin movimientos restantes. ¡Perdiste!");
         }
     }
-
-
-
 
     // Muestra los resultados almacenados
     public void mostrarResultados() {
