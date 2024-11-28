@@ -83,7 +83,6 @@ public class Game {
                     continue;
             }
 
-            jugador.setMovimientos(jugador.getMovimientos() - 1); // Reducir movimientos restantes
 
             if (tablero.verificarGanador()) {
                 juegoTerminado = true; // Detener el bucle

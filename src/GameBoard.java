@@ -136,11 +136,14 @@ public class GameBoard {
 
             // Verificar la nueva posición antes de moverse
             if (tablero[nuevaPosX][nuevaPosY].equals("*")) {
-                // Actualizar posición actual dejando un "."
                 tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+                jugador.setMovimientos(jugador.getMovimientos() + 1);
+                System.out.println("🚶‍🎇️ Movimientos devueltos +1 tienes =" + jugador.getMovimientos());
             } else {
                 // Actualizar posición actual dejando un "*"
                 tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
+                jugador.setMovimientos(jugador.getMovimientos() - 1);
+                System.out.println("🚶 Movimientos restantes " +jugador.getMovimientos());
             }
 
             // Mover al jugador a la nueva posición
@@ -162,8 +165,12 @@ public class GameBoard {
 
             if (tablero[nuevaPosX][nuevaPosY].equals("*")) {
                 tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+                jugador.setMovimientos(jugador.getMovimientos() + 1);
+                System.out.println("🚶‍🎇️ Movimientos devueltos +1 tienes =" + jugador.getMovimientos());
             } else {
                 tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
+                jugador.setMovimientos(jugador.getMovimientos() - 1);
+                System.out.println("🚶 Movimientos restantes " +jugador.getMovimientos());
             }
 
             jugador.setPositionYJugador(nuevaPosY);
@@ -184,8 +191,12 @@ public class GameBoard {
 
             if (tablero[nuevaPosX][nuevaPosY].equals("*")) {
                 tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+                jugador.setMovimientos(jugador.getMovimientos() + 1);
+                System.out.println("🚶‍🎇️ Movimientos devueltos +1 tienes =" + jugador.getMovimientos());
             } else {
                 tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
+                jugador.setMovimientos(jugador.getMovimientos() - 1);
+                System.out.println("🚶 Movimientos restantes " +jugador.getMovimientos());
             }
 
             jugador.setPositionXJugador(nuevaPosX);
@@ -206,8 +217,12 @@ public class GameBoard {
 
             if (tablero[nuevaPosX][nuevaPosY].equals("*")) {
                 tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = ".";
+                jugador.setMovimientos(jugador.getMovimientos() + 1);
+                System.out.println("🚶‍🎇️ Movimientos devueltos +1 tienes =" + jugador.getMovimientos());
             } else {
                 tablero[jugador.getPositionXJugador()][jugador.getPositionYJugador()] = "*";
+                jugador.setMovimientos(jugador.getMovimientos() - 1);
+                System.out.println("🚶 Movimientos restantes " +jugador.getMovimientos());
             }
 
             jugador.setPositionXJugador(nuevaPosX);
@@ -220,4 +235,5 @@ public class GameBoard {
             System.out.println("No más movimientos hacia abajo.");
         }
     }
+
 }
